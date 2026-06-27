@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11:55 Perfumes | Extrait de Parfum</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="loader-logo">11:55</div>
+    </div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="brand-logo">
+                <a href="#home">11:55</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Kezdőlap</a></li>
+                <li><a href="#collection">Kollekció</a></li>
+                <li><a href="#philosophy">Filozófia</a></li>
+                <li><a href="#contact">Kapcsolat</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="cart-trigger" onclick="cartSystem.toggle()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span id="cart-badge" class="badge">0</span>
+                </div>
+            </div>
+            <div class="mobile-menu-btn" onclick="uiManager.toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h4 class="subtitle">Extrait de Parfum • 35% Koncentráció</h4>
+            <h1 class="title">Az Időtlen Jelenlét</h1>
+            <p class="description">Lépj ki a tömegből a legmagasabb minőségű, kompromisszummentes illatokkal. Nem azoknak, akik beolvadni akarnak.</p>
+            <a href="#collection" class="btn btn-primary btn-lg">Kollekció Felfedezése</a>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="feature-box">
+            <h3>35% Extrait</h3>
+            <p>A legmagasabb parfümolaj koncentráció a hosszantartó hatásért.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Minimum 12 óra</h3>
+            <p>Garantált tartósság a bőrön. Egész napos, magabiztos jelenlét.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Kézműves Minőség</h3>
+            <p>Gondosan válogatott, prémium alapanyagokból komponálva.</p>
+        </div>
+    </section>
+
+    <section id="collection" class="collection-section">
+        <div class="section-header">
+            <h2>A Kollekció</h2>
+            <div class="separator"></div>
+            <p>Válaszd ki a karakteredhez illő védjegyet.</p>
+        </div>
+        <div class="grid-container" id="products-grid">
+        </div>
+    </section>
+
+    <section id="philosophy" class="philosophy-section">
+        <div class="philosophy-content">
+            <h2>A 11:55 Filozófia</h2>
+            <div class="separator"></div>
+            <p>A "Szása Kölni" kezdeti sikereiből építkeztünk, hogy megalkossunk egy olyan portfóliót, amely a modern férfit szolgálja. Nem hiszünk a gyorsan elillanó, tucat illatokban. A 11:55 egyet jelent azzal az állapottal, amikor minden összeáll, amikor az idő megáll, és csak a színtiszta, erőteljes jelenlét számít.</p>
+        </div>
+    </section>
+
+    <footer id="contact" class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>11:55 Perfumes</h3>
+                <p>Nyers, őszinte, határozott.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Információk</h4>
+                <ul>
+                    <li><a href="#">ÁSzF</a></li>
+                    <li><a href="#">Adatkezelés</a></li>
+                    <li><a href="#">Szállítás és Fizetés</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Hírlevél</h4>
+                <p>Iratkozz fel az exkluzív megjelenésekért.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="E-mail címed" required>
+                    <button type="submit" class="btn btn-outline">Feliratkozás</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 11:55 Perfumes. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <div id="cart-overlay" class="ui-overlay" onclick="cartSystem.toggle()"></div>
+    <aside id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Kosár</h3>
+            <button class="close-btn" onclick="cartSystem.toggle()">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-items-container">
+        </div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <span>Részösszeg:</span>
+                <span id="cart-total-price">0 Ft</span>
+            </div>
+            <button class="btn btn-primary btn-full" onclick="cartSystem.checkout()">Tovább a pénztárhoz</button>
+        </div>
+    </aside>
+
+    <div id="product-modal-overlay" class="ui-overlay" onclick="uiManager.closeModal()"></div>
+    <div id="product-modal" class="product-modal">
+        <button class="modal-close-btn" onclick="uiManager.closeModal()">&times;</button>
+        <div class="modal-grid">
+            <div class="modal-image-col">
+                <img id="modal-img" src="" alt="Parfüm">
+            </div>
+            <div class="modal-info-col">
+                <h4 class="modal-category">Extrait de Parfum</h4>
+                <h2 id="modal-name">Név</h2>
+                <div class="separator-left"></div>
+                <p id="modal-price" class="modal-price">0 Ft</p>
+                <div class="modal-specs">
+                    <span><strong>Koncentráció:</strong> 35%</span>
+                    <span><strong>Kiszerelés:</strong> 50 ml</span>
+                </div>
+                <p id="modal-desc" class="modal-desc">Leírás</p>
+                <button id="modal-add-btn" class="btn btn-primary btn-full">Kosárba teszem</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
